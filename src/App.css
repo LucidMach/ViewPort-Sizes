@@ -1,38 +1,27 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+:root {
+  --background: #0d1117;
+  --foreground: #c9d1d9;
+  --accent: #19d75d;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "dancing script", cursive;
+  cursor: default;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app_container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background: #0d1117;
+  color: var(--foreground);
+  gap: 1rem;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app_hero:hover {
+  color: var(--accent);
+  cursor: pointer;
 }

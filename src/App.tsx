@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
 
-function App() {
+const App: React.FC = () => {
+  const [h, setH] = useState<number>();
+  const [w, setW] = useState<number>();
+
+  useEffect(() => {
+    setH(window.innerHeight);
+    setW(window.innerWidth);
+  }, []);
+
+  window.addEventListener("resize", () => {
+    setH(window.innerHeight);
+    setW(window.innerWidth);
+  });
+
+  const handleClick = (e: React.MouseEvent, dim_as_string: string): void => {
+    console.log(e.target);
+    navigator.clipboard.writeText(dim_as_string.toString());
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="app_container" style={{ height: h }}>
+      <h1 style={{ display: "flex", gap: "0.5rem" }}>
+        <span
+          className="app_hero"
+          onClick={(e) => handleClick(e, e.currentTarget.innerText)}
         >
-          Learn React
-        </a>
-      </header>
+          {w}
+        </span>
+        x
+        <span
+          className="app_hero"
+          onClick={(e) => handleClick(e, e.currentTarget.innerText)}
+        >
+          {h}
+        </span>
+      </h1>
+      <h4 style={{ fontFamily: "cursive", color: "var(--accent)" }}>
+        [ click dimension to copy onto clipboard ]
+      </h4>
     </div>
   );
-}
+};
 
 export default App;
