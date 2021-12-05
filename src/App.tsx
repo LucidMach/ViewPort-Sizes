@@ -22,7 +22,7 @@ const App: React.FC = () => {
 
   return (
     <div className="app_container" style={{ height: h }}>
-      <h1 style={{ display: "flex", gap: "0.5rem" }}>
+      <h1 style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
         <span
           className="app_hero"
           onClick={(e) => handleClick(e, e.currentTarget.innerText)}

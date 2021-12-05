@@ -9,7 +9,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "dancing script", cursive;
+  font-family: cursive;
   cursor: default;
 }
 .app_container {
@@ -20,6 +20,9 @@
   background: #0d1117;
   color: var(--foreground);
   gap: 1rem;
+}
+.app_hero {
+  font-family: "dancing script", cursive;
 }
 .app_hero:hover {
   color: var(--accent);
