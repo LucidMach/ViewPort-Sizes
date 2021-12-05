@@ -28,3 +28,11 @@
   color: var(--accent);
   cursor: pointer;
 }
+.app_alert {
+  position: absolute;
+  bottom: 2rem;
+  background: var(--accent);
+  opacity: 75%;
+  padding: 0rem 0.5rem;
+  border-radius: 2rem;
+}

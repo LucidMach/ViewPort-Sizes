@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import Alert from "./components/alert";
 import "./App.css";
 
 const App: React.FC = () => {
   const [h, setH] = useState<number>();
   const [w, setW] = useState<number>();
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     setH(window.innerHeight);
@@ -15,9 +17,10 @@ const App: React.FC = () => {
     setW(window.innerWidth);
   });
 
-  const handleClick = (e: React.MouseEvent, dim_as_string: string): void => {
-    console.log(e.target);
-    navigator.clipboard.writeText(dim_as_string.toString());
+  const handleClick = (copytext: string): void => {
+    navigator.clipboard.writeText(copytext.toString());
+    setShow(true);
+    setTimeout(() => setShow(false), 1000);
   };
 
   return (
@@ -25,21 +28,31 @@ const App: React.FC = () => {
       <h1 style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
         <span
           className="app_hero"
-          onClick={(e) => handleClick(e, e.currentTarget.innerText)}
+          onClick={(e) => handleClick(e.currentTarget.innerText)}
         >
           {w}
         </span>
         x
         <span
           className="app_hero"
-          onClick={(e) => handleClick(e, e.currentTarget.innerText)}
+          onClick={(e) => handleClick(e.currentTarget.innerText)}
         >
           {h}
         </span>
       </h1>
-      <h4 style={{ fontFamily: "cursive", color: "var(--accent)" }}>
-        [ click dimension to copy onto clipboard ]
+      <h4
+        style={{
+          fontFamily: "cursive",
+          cursor: "pointer",
+          color: "var(--accent)",
+        }}
+        onClick={() => {
+          handleClick(`${w} ${h}`);
+        }}
+      >
+        [ click dimensions to copy onto clipboard ]
       </h4>
+      <Alert show={show} />
     </div>
   );
 };
