@@ -23,6 +23,10 @@
   color: var(--foreground);
   gap: 1rem;
 }
+.app_shadow {
+  box-shadow: 0.5rem 0.5rem 1rem #00000060,
+    inset 0.0625rem 0.0625rem 0.25rem #ffffff60;
+}
 .app_hero {
   font-family: "dancing script", cursive;
 }
@@ -32,9 +36,62 @@
 }
 .app_alert {
   position: absolute;
+  color: var(--background);
   bottom: 2rem;
   background: var(--accent);
   opacity: 0.75;
   padding: 0rem 0.5rem;
   border-radius: 2rem;
+}
+.app_help {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 1rem;
+  right: 1.5rem;
+  background: var(--accent);
+  color: var(--background);
+  padding: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.app_overlay {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* z-index: 1; */
+}
+.app_modal {
+  height: fit-content;
+  background: var(--background);
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 2rem;
+}
+.app_why {
+  align-self: flex-start;
+  color: var(--accent);
+}
+ul {
+  list-style: inside;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+.app_logos {
+  display: flex;
+  width: 75%;
+  justify-content: space-around;
+}
+svg:hover {
+  fill: var(--accent);
 }

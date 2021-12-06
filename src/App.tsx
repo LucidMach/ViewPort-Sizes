@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Alert from "./components/alert";
+import Help from "./components/help";
 import "./App.css";
 
 const App: React.FC = () => {
@@ -25,6 +26,7 @@ const App: React.FC = () => {
 
   return (
     <div className="app_container" style={{ height: h }}>
+      <Help />
       <h1 style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
         <span
           className="app_hero"
@@ -43,6 +45,7 @@ const App: React.FC = () => {
       <h4
         style={{
           cursor: "pointer",
+          textAlign: "center",
           color: "var(--accent)",
         }}
         onClick={() => {
