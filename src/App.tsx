@@ -42,7 +42,6 @@ const App: React.FC = () => {
       </h1>
       <h4
         style={{
-          fontFamily: "cursive",
           cursor: "pointer",
           color: "var(--accent)",
         }}
@@ -50,7 +49,7 @@ const App: React.FC = () => {
           handleClick(`${w} ${h}`);
         }}
       >
-        [ click dimensions to copy onto clipboard ]
+        [ click here to copy both dimensions onto clipboard ]
       </h4>
       <Alert show={show} />
     </div>
